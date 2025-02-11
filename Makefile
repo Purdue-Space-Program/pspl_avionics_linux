@@ -19,14 +19,11 @@ build: $(BUILDROOT_DIR) $(BUILD_DIR)
 config: $(BUILDROOT_DIR) $(BUILD_DIR)
 	$(MAKE) $(BR_MAKE_OPTS) pspl_cms_pi4_defconfig
 
-menuconfig: $(BUILD_DIR)
+menuconfig: $(BUILDROOT_DIR) $(BUILD_DIR)
 	$(MAKE) $(BR_MAKE_OPTS) menuconfig
 
-linux-menuconfig:
+linux-menuconfig: $(BUILDROOT_DIR) $(BUILD_DIR)
 	$(MAKE) $(BR_MAKE_OPTS) linux-menuconfig
-
-linux-update-defconfig:
-	$(MAKE) $(BR_MAKE_OPTS) linux-update-defconfig
 
 clean:
 	rm -rf $(BUILD_DIR)

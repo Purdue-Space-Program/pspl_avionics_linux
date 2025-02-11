@@ -22,5 +22,11 @@ config: $(BUILDROOT_DIR) $(BUILD_DIR)
 menuconfig: $(BUILD_DIR)
 	$(MAKE) $(BR_MAKE_OPTS) menuconfig
 
+linux-menuconfig:
+	$(MAKE) $(BR_MAKE_OPTS) linux-menuconfig
+
+linux-update-defconfig:
+	$(MAKE) $(BR_MAKE_OPTS) linux-update-defconfig
+
 clean:
 	rm -rf $(BUILD_DIR)

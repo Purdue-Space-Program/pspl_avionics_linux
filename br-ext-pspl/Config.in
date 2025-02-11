@@ -1,1 +1,0 @@
-source "$BR2_EXTERNAL_PSPL_PATH/package/pspl-cms-init/Config.in"

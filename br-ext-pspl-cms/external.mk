@@ -1,0 +1,1 @@
+include $(sort $(wildcard $(BR2_EXTERNAL_PSPL_CMS_PATH)/package/*/*.mk))

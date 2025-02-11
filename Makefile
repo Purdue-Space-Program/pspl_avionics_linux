@@ -1,6 +1,6 @@
 BUILDROOT_DIR = buildroot
-BR2_EXTERNAL := $(PWD)
-BUILD_DIR = build
+BR2_EXTERNAL := $(PWD)/br-ext-pspl-cms
+BUILD_DIR = outputs
 BR_MAKE = $(MAKE) -C $(BUILDROOT_DIR) O=$(PWD)/$(BUILD_DIR) BR2_EXTERNAL=$(BR2_EXTERNAL)
 
 .PHONY: all clean menuconfig build

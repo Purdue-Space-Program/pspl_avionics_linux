@@ -1,1 +1,2 @@
 source "$BR2_EXTERNAL_PSPL_CMS_PATH/package/pspl-cms-init/Config.in"
+source "$BR2_EXTERNAL_PSPL_CMS_PATH/package/daqhats/Config.in"

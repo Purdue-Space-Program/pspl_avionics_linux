@@ -1,0 +1,8 @@
+config BR2_PACKAGE_DAQHATS
+	bool "daqhats"
+	depends on BR2_PACKAGE_LIBGPIOD
+	depends on BR2_PACKAGE_LIBGPIOD_TOOLS
+    depends on BR2_PACKAGE_GTK3
+	help
+	  DAQ HATs support package for Raspberry Pi.
+	  https://github.com/mccdaq/daqhats

@@ -12,6 +12,7 @@ $(BUILDROOT_DIR):
 
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
+	mkdir -p cache
 
 build: $(BUILDROOT_DIR) $(BUILD_DIR)
 	$(MAKE) $(BR_MAKE_OPTS)

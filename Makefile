@@ -26,5 +26,8 @@ menuconfig: $(BUILDROOT_DIR) $(BUILD_DIR)
 linux-menuconfig: $(BUILDROOT_DIR) $(BUILD_DIR)
 	$(MAKE) $(BR_MAKE_OPTS) linux-menuconfig
 
+br-%: $(BUILDROOT_DIR) $(BUILD_DIR)
+	$(MAKE) $(BR_MAKE_OPTS) $*
+
 clean:
 	rm -rf $(BUILD_DIR)

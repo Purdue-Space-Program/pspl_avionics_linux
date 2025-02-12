@@ -67,6 +67,10 @@ define DAQHATS_INSTALL_TARGET_CMDS
 	ln -sf libdaqhats.so.$(DAQHATS_VERSION) $(TARGET_DIR)/usr/lib/libdaqhats.so.1
 	ln -sf libdaqhats.so.1 $(TARGET_DIR)/usr/lib/libdaqhats.so
 
+	# daqhats expects lib to be at /usr/local/lib for some stupid reason
+	$(INSTALL) -d $(TARGET_DIR)/usr/local/lib
+	ln -sf libdaqhats.so.$(DAQHATS_VERSION) $(TARGET_DIR)/usr/local/lib/libdaqhats.so
+
 	# Install the tools
 	$(INSTALL) -d $(TARGET_DIR)/usr/bin
 	$(INSTALL) -m 755 $(@D)/tools/mcc172_firmware_update $(TARGET_DIR)/usr/bin
@@ -76,6 +80,12 @@ define DAQHATS_INSTALL_TARGET_CMDS
 	$(INSTALL) -m 755 $(@D)/tools/daqhats_list_boards $(TARGET_DIR)/usr/bin
 	$(INSTALL) -m 755 $(@D)/tools/daqhats_version $(TARGET_DIR)/usr/bin
 	$(INSTALL) -m 755 $(@D)/tools/daqhats_check_152 $(TARGET_DIR)/usr/bin
+
+	# copy firmware files
+	$(INSTALL) -d $(TARGET_DIR)/usr/share/daqhats
+	$(INSTALL) -m 644 $(@D)/tools/MCC_118.hex $(TARGET_DIR)/usr/share
+	$(INSTALL) -m 644 $(@D)/tools/MCC_128.fw $(TARGET_DIR)/usr/share
+	$(INSTALL) -m 644 $(@D)/tools/MCC_172.fw $(TARGET_DIR)/usr/share
 endef
 
 $(eval $(generic-package))

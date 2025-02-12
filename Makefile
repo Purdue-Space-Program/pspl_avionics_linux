@@ -28,6 +28,3 @@ linux-menuconfig: $(BUILDROOT_DIR) $(BUILD_DIR)
 
 br-%: $(BUILDROOT_DIR) $(BUILD_DIR)
 	$(MAKE) $(BR_MAKE_OPTS) $*
-
-clean:
-	rm -rf $(BUILD_DIR)

@@ -1,5 +1,0 @@
-config BR2_PACKAGE_PSP_CMS_INIT
-	bool "pspl-cms-init"
-	depends on !BR2_INIT_BUSYBOX && !BR2_INIT_SYSTEMD && !BR2_INIT_SYSV && !BR2_INIT_NONE
-	help
-	  PSP CMS custom init system

@@ -13,10 +13,10 @@ Enter the build environment by running
 You have to run `make` from within the container because
 the ccache path is hardcoded as `/work/cache` in `buildroot-external/configs/pspl_cms_pi4_defconfig`
 
-To build the image, run
+To build the image, run (in the container)
 ```
 make config
-make
+make -j$(nproc)
 ```
 
 ## Code Map

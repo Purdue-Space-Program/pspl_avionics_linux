@@ -72,7 +72,9 @@ define DAQHATS_INSTALL_TARGET_CMDS
 	$(INSTALL) -m 755 $(@D)/tools/mcc172_firmware_update $(TARGET_DIR)/usr/bin
 	$(INSTALL) -m 755 $(@D)/tools/mcc128_firmware_update $(TARGET_DIR)/usr/bin
 	$(INSTALL) -m 755 $(@D)/tools/mcc118_firmware_update $(TARGET_DIR)/usr/bin
+	$(INSTALL) -m 755 $(@D)/tools/daqhats_read_eeproms $(TARGET_DIR)/usr/bin
 	$(INSTALL) -m 755 $(@D)/tools/daqhats_list_boards $(TARGET_DIR)/usr/bin
+	$(INSTALL) -m 755 $(@D)/tools/daqhats_version $(TARGET_DIR)/usr/bin
 	$(INSTALL) -m 755 $(@D)/tools/daqhats_check_152 $(TARGET_DIR)/usr/bin
 endef
 

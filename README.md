@@ -11,7 +11,7 @@ Enter the build environment by running
 ```
 
 You have to run `make` from within the container because
-the ccache path is hardcoded as `/work/cache` in `br-ext-pspl-cms/configs/pspl_cms_pi4_defconfig`
+the ccache path is hardcoded as `/work/cache` in `buildroot-external/configs/pspl_cms_pi4_defconfig`
 
 To build the image, run
 ```
@@ -21,7 +21,7 @@ make
 
 ## Code Map
 ```
-├── br-ext-pspl-cms
+├── buildroot-external
 │   ├── board
 │   │   └── raspberrypi
 │   │       └── linux.config           # linux defconfig

@@ -1,5 +1,5 @@
 BUILDROOT_DIR = buildroot
-BR2_EXTERNAL := $(PWD)/br-ext-pspl-cms
+BR2_EXTERNAL := $(PWD)/buildroot-external
 BUILD_DIR = outputs
 BR_MAKE_OPTS = -C $(BUILDROOT_DIR) O=$(PWD)/$(BUILD_DIR) BR2_EXTERNAL=$(BR2_EXTERNAL)
 

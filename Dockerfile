@@ -15,7 +15,8 @@ RUN apt-get install -y \
     locales \
     perl \
     git \
-    ccache
+    ccache \
+    cmake
 
 RUN groupadd -g 1000 builder && \
     useradd -u 1000 -g builder -m builder

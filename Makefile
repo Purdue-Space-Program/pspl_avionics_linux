@@ -4,7 +4,7 @@ CACHE_DIR = cache
 BR2_EXTERNAL := $(PWD)/buildroot-external
 BR_MAKE_OPTS = -C $(BUILDROOT_DIR) O=$(PWD)/$(BUILD_DIR) BR2_EXTERNAL=$(BR2_EXTERNAL) BR2_CCACHE_DIR=$(PWD)/$(CACHE_DIR)
 
-.PHONY: all build
+.PHONY: all build config clean
 
 all: build
 
@@ -18,10 +18,13 @@ $(CACHE_DIR):
 	mkdir -p $(CACHE_DIR)
 
 build: $(BUILDROOT_DIR) $(BUILD_DIR) $(CACHE_DIR) config
-	$(MAKE) $(BR_MAKE_OPTS)
+	$(MAKE) $(BR_MAKE_OPTS) -j$(shell nproc)
 
 config: $(BUILDROOT_DIR) $(BUILD_DIR) $(CACHE_DIR)
 	$(MAKE) $(BR_MAKE_OPTS) pspl_cms_pi4_defconfig
+
+clean: $(BUILDROOT_DIR) $(BUILD_DIR) $(CACHE_DIR)
+	$(MAKE) $(BR_MAKE_OPTS) clean
 
 br-%: $(BUILDROOT_DIR) $(BUILD_DIR) $(CACHE_DIR)
 	$(MAKE) $(BR_MAKE_OPTS) $*

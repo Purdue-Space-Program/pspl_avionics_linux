@@ -1,7 +1,6 @@
 config BR2_PACKAGE_AVI_FSW
 	bool "avi-fsw"
     select BR2_PACKAGE_LIBGPIOD
-    select BR2_PACKAGE_DAQHATS
 	help
 	  CMS COTS Avionics Flight Software
 	  https://github.com/Purdue-Space-Program/PSPL_CMS_AVIONICS_COTS_FSW

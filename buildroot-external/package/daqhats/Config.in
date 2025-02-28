@@ -1,6 +1,0 @@
-config BR2_PACKAGE_DAQHATS
-	bool "daqhats"
-    select BR2_PACKAGE_LIBGPIOD
-	help
-	  DAQ HATs support package for Raspberry Pi.
-	  https://github.com/mccdaq/daqhats

@@ -22,14 +22,18 @@ part_num = max(part_nums)
 part = prefix + str(part_num)
 
 # resize the partition to the maximum size
-# os.system("parted -s " + dev + " resizepart " + str(part_num) + " 100% Yes")
+print("resizing partition")
 parted = subprocess.Popen(["parted", dev, "---pretend-input-tty"], stdin=subprocess.PIPE)
 parted.stdin.write("""resizepart 3 100%
 Yes
 quit
 """.encode())
 
+parted.stdin.close()
+parted.wait()
+
 # resize the filesystem
+print("resizing filesystem")
 os.system("resize2fs " + part)
 
 # touch file in /var/lib to indicate that we've resized the partition

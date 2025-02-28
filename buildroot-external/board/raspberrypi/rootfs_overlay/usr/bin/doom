@@ -1,0 +1,2 @@
+#!/bin/sh
+fbdoom -iwad /etc/doom/doom1.wad

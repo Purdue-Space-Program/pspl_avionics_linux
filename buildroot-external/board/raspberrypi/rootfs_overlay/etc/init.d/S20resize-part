@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import subprocess
 import os
 import sys
 import glob
@@ -14,13 +15,22 @@ if os.path.exists("/var/lib/.initial-resize-done"):
 dev = "/dev/mmcblk0"
 prefix = dev + "p"
 parts = glob.glob(prefix + "*")
-part_nums = [int(p[len(prefix):]) for p in parts]
+part_nums = [int(p[len(prefix) :]) for p in parts]
 
 part_num = max(part_nums)
 part = prefix + str(part_num)
 
 # resize the partition to the maximum size
-os.system("parted -s " + dev + " resizepart " + str(part_num) + " 100%")
+# os.system("parted -s " + dev + " resizepart " + str(part_num) + " 100% Yes")
+parted = subprocess.Popen(
+    ["parted", dev, "---pretend-input-tty"], stdin=subprocess.PIPE
+)
+parted.stdin.write("""resize 3 100%
+Yes
+quit
+""")
+parted.stdin.close()
+_ = parted.communicate()
 
 # resize the filesystem
 os.system("resize2fs " + part)

@@ -1,1 +1,7 @@
-source "$BR2_EXTERNAL_PSPL_CMS_PATH/package/avi-fsw/Config.in"
+if BR2_TARGET_CMS
+source "$BR2_EXTERNAL_PSPL_CMS_PATH/package/avi-cms-fsw/Config.in"
+endif
+
+if BR2_TARGET_CPH
+source "$BR2_EXTERNAL_PSPL_CMS_PATH/package/avi-cph-fsw/Config.in"
+endif

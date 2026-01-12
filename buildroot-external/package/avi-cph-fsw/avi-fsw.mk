@@ -1,0 +1,17 @@
+AVI_FSW_VERSION = 0.1.0
+AVI_FSW_SITE = $(call github,Purdue-Space-Program,PSPL_CMS_AVIONICS_COTS_FSW,main)
+AVI_FSW_LICENSE = PROPRIETARY
+AVI_FSW_DEPENDENCIES = libgpiod
+
+AVI_FSW_CFLAGS = $(TARGET_CFLAGS) -Iinclude/ -std=c11
+AVI_FSW_CXXFLAGS = $(TARGET_CXXFLAGS) -Iinclude/ -std=c++20
+
+define AVI_FSW_BUILD_CMDS
+	$(MAKE) $(TARGET_CONFIGURE_OPTS) CFLAGS="$(AVI_FSW_CFLAGS)" CXXFLAGS="$(AVI_FSW_CXXFLAGS)" -C $(@D) all
+endef
+
+define AVI_FSW_INSTALL_TARGET_CMDS
+	$(MAKE) -C $(@D) install PREFIX=$(TARGET_DIR)
+endef
+
+$(eval $(generic-package))

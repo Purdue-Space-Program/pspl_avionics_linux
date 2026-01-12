@@ -1,4 +1,4 @@
-BR2_TARGET_CMS=y
+BR2_TARGET_CPH=y
 
 BR2_aarch64=y
 BR2_cortex_a72=y
@@ -14,7 +14,7 @@ BR2_ROOTFS_DEVICE_CREATION_DYNAMIC_EUDEV=y
 
 # == Skeleton Configuration ==
 # BR2_TARGET_GENERIC_ISSUE="$(git describe --tags --dirty --always)"
-BR2_TARGET_GENERIC_HOSTNAME="pspl-cms-avi-fc"
+BR2_TARGET_GENERIC_HOSTNAME="pspl-cph-avi-fc"
 BR2_TARGET_ENABLE_ROOT_LOGIN=y
 
 # generated with `mkpasswd -m sha512crypt`

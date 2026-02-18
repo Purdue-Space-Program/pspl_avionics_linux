@@ -1,0 +1,4 @@
+#!/bin/sh
+
+mkdir -p /var/run/sshd /var/empty
+chmod 700 /var/empty
